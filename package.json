@@ -55,7 +55,8 @@
     },
     "win": {
       "target": ["nsis"],
-      "artifactName": "${productName}-${version}-Setup.${ext}"
+      "artifactName": "${productName}-${version}-Setup.${ext}",
+      "icon": "build/icon.png"
     },
     "mac": { "target": ["dmg", "zip"] },
     "linux": { "target": ["AppImage", "deb", "rpm"], "category": "Development" },
