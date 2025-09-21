@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+  "module": "CommonJS",
+  "moduleResolution": "Node",
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "paths": {
+      "@main/*": ["electron/main/*"],
+      "@preload/*": ["electron/preload/*"],
+      "@shared/*": ["shared/*"]
+    }
+  },
+  "include": [
+    "electron/**/*.ts",
+    "scripts/**/*.ts",
+    "shared/**/*.ts",
+    "tests/**/*.ts"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "name": "microcks-desktop",
+  "version": "0.1.0",
+  "description": "Microcks Desktop - Electron wrapper for Microcks Spring Boot JAR",
+  "license": "Apache-2.0",
+  "author": "Microcks Community",
+  "productName": "Microcks Desktop",
+  "main": "dist/electron/main/index.js",
+  "scripts": {
+    "build:main": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev": "concurrently -k \"tsc -w\" \"wait-on dist/electron/main/index.js && electron .\"",
+    "start": "npm run build:main && electron .",
+    "pack": "npm run build:main && electron-builder --dir",
+    "dist": "npm run build:main && electron-builder",
+    "lint": "echo No linter configured",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "tree-kill": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5",
+    "wait-on": "^7.2.0"
+  },
+  "build": {
+    "appId": "io.microcks.desktop",
+    "productName": "Microcks Desktop",
+    "files": [
+      "dist/**/*",
+      "renderer/**/*",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "backend/",
+        "to": "backend",
+        "filter": ["*.jar"]
+      },
+      {
+        "from": "jre/",
+        "to": "jre",
+        "filter": ["**/*"]
+      }
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": ["nsis"],
+      "artifactName": "${productName}-${version}-Setup.${ext}",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": ["dmg", "zip"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb", "rpm"],
+      "category": "Development"
+    },
+  "nsis": {
+      "oneClick": true,
+      "allowToChangeInstallationDirectory": false,
+      "perMachine": false
+  },
+  "afterPack": "scripts/afterPack.js"
+  }
+}
