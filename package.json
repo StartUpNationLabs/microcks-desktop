@@ -55,16 +55,10 @@
     },
     "win": {
       "target": ["nsis"],
-      "artifactName": "${productName}-${version}-Setup.${ext}",
-      "icon": "build/icon.ico"
+      "artifactName": "${productName}-${version}-Setup.${ext}"
     },
-    "mac": {
-      "target": ["dmg", "zip"]
-    },
-    "linux": {
-      "target": ["AppImage", "deb", "rpm"],
-      "category": "Development"
-    },
+    "mac": { "target": ["dmg", "zip"] },
+    "linux": { "target": ["AppImage", "deb", "rpm"], "category": "Development" },
   "nsis": {
       "oneClick": true,
       "allowToChangeInstallationDirectory": false,

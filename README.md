@@ -38,6 +38,7 @@ Installer will include those under resources.
 - macOS builds: dmg and zip. Codesigning/notarization are required to distribute broadly.
 - Linux builds: AppImage, deb, rpm.
 - Bundled JRE: put a platform-specific JRE in `jre/` before building. The build will mark `jre/bin/java` executable on macOS/Linux automatically.
+ - Icons: If you want custom icons, add `build/icon.ico` (Windows), `build/icon.icns` (macOS), and common PNGs for Linux. Avoid empty placeholder files—builder will fail converting them.
 
 ## Troubleshooting
 - Backend fails to start: check logs under `%AppData%/Microcks Desktop/logs`.
