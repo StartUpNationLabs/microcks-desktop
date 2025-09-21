@@ -4,6 +4,7 @@
   "description": "Microcks Desktop - Electron wrapper for Microcks Spring Boot JAR",
   "license": "Apache-2.0",
   "author": "Microcks Community",
+  "email": "apoorva.appadoo+microcks@gmail.com",
   "productName": "Microcks Desktop",
   "main": "dist/electron/main/index.js",
   "scripts": {
@@ -60,7 +61,7 @@
     },
     "mac": { "target": ["dmg", "zip"] },
     "linux": { "target": ["AppImage", "deb", "rpm"], "category": "Development" },
-  "nsis": {
+    "nsis": {
       "oneClick": true,
       "allowToChangeInstallationDirectory": false,
       "perMachine": false
